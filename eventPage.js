@@ -14,7 +14,23 @@ const invalidGitHubRepositoryOwners = [
   'about',
   'orgs',
   'codespaces',
-  'settings'
+  'settings',
+  'marketplace',
+  'pulls',
+  'issues',
+  'notifications',
+  'account',
+  'discussions',
+  'sponsors',
+  'login',
+  'codesearch',
+  'enterprise',
+  'enterprises',
+  'security',
+  'team',
+  'customer-stories',
+  'readme',
+  'pricing'
 ];
 let defaultSuggestionURL = '';
 
