@@ -2,7 +2,7 @@
   "manifest_version": 3,
 
   "name": "VS Code",
-  "version": "2.0",
+  "version": "2.1",
 
   "action": {
     "default_icon": "vscode.png"
@@ -28,5 +28,5 @@
 
   "permissions": ["tabs", "history", "storage"],
 
-  "omnibox": { "keyword" : "code" }
+  "omnibox": { "keyword": "code" }
 }
