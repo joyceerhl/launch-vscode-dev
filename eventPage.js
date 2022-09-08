@@ -143,6 +143,16 @@ chrome.commands.onCommand.addListener((command) => {
 chrome.runtime.onStartup.addListener(buildAndSetRepoMap);
 chrome.runtime.onInstalled.addListener(buildAndSetRepoMap);
 
+chrome.omnibox.onDeleteSuggestion.addListener(function(text) {
+  chrome.storage.local.get(REPO_MAP_LOCAL_STORAGE_KEY, function(storageObj) {
+    const repoMap = storageObj.repoMap;
+    delete repoMap[text];
+    chrome.storage.local.set({ repoMap: repoMap }, function() {
+      console.log('RepoMap updated successfully in local storage');
+    });
+  })
+});
+
 chrome.omnibox.onInputChanged.addListener(function(input, suggest) {
   input = input.trim().toLowerCase();
 
@@ -157,7 +167,8 @@ chrome.omnibox.onInputChanged.addListener(function(input, suggest) {
       const repo = repoMap[fullName];
       const suggestion = {
         content: repo.url,
-        description: fullName
+        description: fullName,
+        deletable: true
       };
 
       // See if we have multiple or just a single keyword
