@@ -111,6 +111,7 @@ function buildAndSetRepoMap() {
 }
 
 function addRepoToMap(repoMap, owner, repoName, fullName) {
+  fullName = fullName.toLowerCase();
   if (!repoMap[fullName] && !invalidGitHubRepositoryOwners.includes(owner)) {
     repoMap[fullName] = {
       url: 'https://github.com/' + fullName,
