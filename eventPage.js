@@ -217,6 +217,7 @@ chrome.omnibox.onInputChanged.addListener(function(input, suggest) {
     if (suggestions.length > 0) {
       defaultSuggestionDescription = '<match>' + suggestions[0].description + '</match>';
       defaultSuggestionURL = suggestions[0].content;
+      suggestions = suggestions.slice(1);
     } else if (isSingleKeyword && input.split('/').filter((segment) => segment.trim() !== '').length === 2) {
       defaultSuggestionDescription = '<match>Open ' + 'https://insiders.vscode.dev/github/' + input + '"</match>';
       defaultSuggestionURL = 'https://github.com/' + input;
