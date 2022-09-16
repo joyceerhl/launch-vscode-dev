@@ -46,7 +46,7 @@ function redirect(tab) {
 function dotComToDotDev(url) {
   try {
     url = new URL(url);
-    if (url.hostname === GITHUB_COM) {
+    if (url.hostname.endsWith(GITHUB_COM)) {
       url.hostname = INSIDERS_VSCODE_DEV;
       url.pathname = `/github${url.pathname}`;
       return url.toString();
