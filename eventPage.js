@@ -182,7 +182,7 @@ chrome.omnibox.onInputChanged.addListener(function(input, suggest) {
     for (const fullName in repoMap) {
       const repo = repoMap[fullName];
       const suggestion = {
-        content: repo.url,
+        content: dotComToDotDev(repo.url),
         description: fullName,
         deletable: true
       };
@@ -243,9 +243,9 @@ chrome.omnibox.onInputEntered.addListener(function(input) {
     url = 'https://insiders.vscode.dev';
   } else if (input.startsWith('https://github.com/')) {
     // If input is a valid Github URL, the user has selected something else than the default option
-    url = dotComToDotDev(input);
+    url = input;
   } else {
-    url = dotComToDotDev(defaultSuggestionURL);
+    url = defaultSuggestionURL;
   }
 
   if (!url) {
